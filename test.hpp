@@ -1,5 +1,6 @@
 #pragma once
-#include <queue>
+#include <vector>
+#include <string>
 #include <functional>
 
 template <typename Input, typename Output>

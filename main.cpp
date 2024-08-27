@@ -1,6 +1,7 @@
+#include "test.hpp"
 #include <vector>
 #include <string>
-#include "test.hpp"
+
 bool check(int i)
 {
     return i == 1;

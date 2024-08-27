@@ -9,3 +9,5 @@ target_sources(task PRIVATE
     test.cpp
     main.cpp
 )
+
+install(TARGETS task DESTINATION bin)
