@@ -1,12 +1,19 @@
 project(lc_projects)
 
 cmake_minimum_required(VERSION 3.5)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(task)
 
+target_include_directories(task PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    env
+    problems
+)
 target_sources(task PRIVATE
-    test.hpp
-    test.cpp
+    env/test.hpp
+    env/test.cpp
+    problems/digital_key.hpp
     main.cpp
 )
 

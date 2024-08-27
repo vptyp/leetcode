@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TEST_HPP
+#define TEST_HPP
+
 #include <vector>
 #include <string>
 #include <functional>
@@ -28,3 +30,5 @@ private:
     size_t errors{0};
     std::vector<test_t> tests;
 };
+
+#endif // TEST_HPP
