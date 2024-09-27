@@ -65,7 +65,9 @@ inline void dk::solver::weight_diff(current_t current){
         auto next = current;
         if(++next == allowed.end())
             break;
-        weights[next->first - current++->first] = next->first;
+        auto diff = next->first - current->first;
+        weights[diff] = weights[diff] > next->second ? 
+                        weights[diff] : next->second;
     }
     auto it = weights.begin();
     ///filter all diffs which are unusable for us, like [2] remove 4 or [1] and everything else
