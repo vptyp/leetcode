@@ -1,7 +1,8 @@
 #include "test.hpp"
 #include <cstdio>
+#include <ctime>
 #include <iostream>
-
+#include <chrono>
 
 template <typename Input, typename Output>
 void TestEnv<Input, Output>::add_testcases(const std::vector<test_t>& testcases) 
@@ -43,6 +44,8 @@ template <typename Input, typename Output>
 void TestEnv<Input, Output>::run_tests() 
 {
     Output got;
+    //measure execute time
+    auto start = std::chrono::system_clock::now();
     for(auto& test : tests) {
         got = testable(test.input);
         if(test.expected != got) {
@@ -51,6 +54,9 @@ void TestEnv<Input, Output>::run_tests()
         }
         ++test_num;
     }
+    std::cerr << "Execute time: " 
+              << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - start).count() 
+              << std::endl;
     log_result();
 }
 
