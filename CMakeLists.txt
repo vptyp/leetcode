@@ -14,6 +14,7 @@ target_sources(task PRIVATE
     env/test.hpp
     env/test.cpp
     problems/digital_key.hpp
+    problems/digital_key.cpp
     main.cpp
 )
 
