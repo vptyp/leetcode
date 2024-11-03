@@ -20,9 +20,12 @@ void TestEnv<Input, Output>::add_testcase(test_t&& testcase)
 }
 
 template <typename Input, typename Output>
-void TestEnv<Input, Output>::set_testable(test_f&& func)
+void TestEnv<Input, Output>::set_testable(test_f&& func, const std::string& name)
 {
-    testable = func;
+    test_num      = 0;
+    errors        = 0;
+    testable      = func;
+    testable_name = name;
 }
 
 template <typename Input, typename Output>

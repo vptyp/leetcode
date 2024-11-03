@@ -1,6 +1,8 @@
 #ifndef TEST_HPP
 #define TEST_HPP
 
+#include <VariadicTable.h>
+#include <cstdint>
 #include <functional>
 #include <iostream>
 #include <ostream>
@@ -32,20 +34,23 @@ class TestEnv {
 public:
     TestEnv(std::ostream& out = std::cerr)
         : out(out)
+        , vt(VariadicTable<uint32_t, std::string, Output, Output, double>({ "Num", "Test Name", "Expected", "Got", "Execution Time" }, 10))
     {
     }
 
     void add_testcases(const std::vector<test_t>& testcases);
     void add_testcase(test_t&& testcase);
     void run_tests();
-    void set_testable(test_f&& func);
+    void set_testable(test_f&& func, const std::string& name);
 
 private:
     std::ostream& out;
     test_f testable;
+    std::string testable_name;
     size_t test_num { 0 };
     size_t errors { 0 };
     std::vector<test_t> tests;
+    VariadicTable<uint32_t, std::string, Output, Output, double> vt;
 };
 
 #endif // TEST_HPP
