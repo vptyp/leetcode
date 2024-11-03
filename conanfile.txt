@@ -1,0 +1,8 @@
+[requires]
+glog/0.7.1
+readerwriterqueue/1.0.6
+fmt/11.0.2
+
+[generators]
+CMakeDeps
+CMakeToolchain
